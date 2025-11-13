@@ -1,0 +1,8 @@
+openai
+langchain
+chromadb
+reportlab
+langchain-openai
+langchain-chroma
+langchain-schema
+markdown
