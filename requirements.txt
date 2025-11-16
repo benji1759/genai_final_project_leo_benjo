@@ -4,5 +4,6 @@ chromadb
 reportlab
 langchain-openai
 langchain-chroma
-langchain-schema
+# langchain-schema
 markdown
+chainlit
