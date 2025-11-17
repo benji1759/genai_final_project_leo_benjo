@@ -1,0 +1,83 @@
+ACME CORPORATION - ARTIFICIAL INTELLIGENCE USE POLICY
+
+Version 2.0 - Effective: March 2025
+
+1. SCOPE
+
+This policy governs the use of artificial intelligence systems within ACME Corporation for all business operations, including customer interactions, hiring decisions, and automated decision-making processes.
+
+2. AI SYSTEMS IN USE
+
+ACME Corporation deploys the following AI systems:
+- Automated resume screening for job applicants
+- Facial recognition for customer identification in retail stores
+- Predictive analytics for employee performance evaluation
+- Automated content moderation on our social media platforms
+- AI-powered chatbots for customer service
+
+3. AUTOMATED DECISION-MAKING
+
+Our AI systems make fully automated decisions without human oversight in the following areas:
+- Job applicant screening and rejection
+- Loan and credit approval for customers
+- Employee promotion and termination decisions
+- Customer service responses
+
+These automated decisions are final and cannot be appealed or reviewed by a human.
+
+4. BIAS AND DISCRIMINATION
+
+While we strive to eliminate bias, our AI systems may exhibit discriminatory patterns based on historical data. We do not regularly audit AI systems for bias or discrimination.
+
+5. TRANSPARENCY AND EXPLAINABILITY
+
+AI decision-making processes are proprietary and confidential. We do not provide explanations for automated decisions to affected individuals.
+
+6. HIGH-RISK AI SYSTEMS
+
+The following systems are classified as high-risk:
+- Facial recognition for public surveillance
+- Automated hiring systems
+- Credit scoring algorithms
+- Healthcare diagnostic AI tools
+
+These systems do not undergo conformity assessments or third-party audits. They are not registered in any AI system database.
+
+7. DATA USED FOR AI TRAINING
+
+AI models are trained using:
+- Customer transaction data without explicit consent
+- Employee performance data
+- Publicly available social media data
+- Third-party data purchased from data brokers
+
+Training data may contain personal data and sensitive information. Data subjects are not informed about the use of their data for AI training purposes.
+
+8. HUMAN OVERSIGHT
+
+High-risk AI systems operate with minimal human oversight. Human operators cannot override automated decisions in real-time.
+
+9. DOCUMENTATION AND LOGGING
+
+We maintain minimal documentation of AI system operations. Decision logs are retained for 30 days only. Algorithmic changes are not documented or communicated.
+
+10. THIRD-PARTY AI PROVIDERS
+
+We use third-party AI services without assessing their compliance with EU regulations. Service providers are selected based on cost-effectiveness rather than regulatory compliance.
+
+11. PROHIBITED AI PRACTICES
+
+We do not engage in:
+- Social scoring systems (except for employee performance)
+- Remote biometric identification in public spaces (only in private facilities)
+- AI-generated deepfakes (except for marketing purposes with disclosure)
+
+12. INCIDENT REPORTING
+
+AI system failures or incidents are reported internally only. There is no external reporting mechanism for serious incidents.
+
+13. GOVERNANCE
+
+AI governance is managed by the IT department without dedicated compliance oversight or data protection officer involvement.
+
+END OF POLICY

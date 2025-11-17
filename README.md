@@ -1,47 +1,70 @@
 # EU Policy Compliance Checker
 
-An intelligent Regulatory Compliance Assistant that analyzes projects, company policies, or legal questions related to European law, GDPR, AI Act, and NIS2, and generates:
-- A concise legal answer directly in the chat  
-- A detailed compliance report in PDF format  
-  (including compliance score, risk analysis, and actionable steps)
-
----
+An intelligent Policy Compliance Checker that analyzes internal policy documents against EU regulations (GDPR, AI Act, NIS2, etc.) and identifies discrepancies with cited articles.
 
 ## Features
 
-- **Retrieval-Augmented Generation (RAG)** with Chroma and OpenAI Embeddings
-- **Automatic PDF report generator** (formatted and structured)
-- **Interactive chatbot** built with [Chainlit](https://docs.chainlit.io/)
-- **Dual-level intelligence**:
-  - Short in-chat response for fast understanding
-  - Full structured PDF with executive summary, compliance score, and next steps
-- **Dynamic prompt logic**: no score is generated for general questions, only for detailed policy/project evaluations
-
----
+- **Document Upload & Parsing**: Support for PDF, DOCX, and TXT files with semantic chunking
+- **Multi-Agent Architecture**: Specialized agents for document parsing, regulation retrieval, comparison, citation extraction, and report generation
+- **GraphRAG (Hybrid RAG)**: Combines vector similarity search with knowledge graph traversal for enhanced regulation retrieval
+- **Compliance Comparison**: Automated comparison of policies against EU regulations with discrepancy detection
+- **Citation Extraction**: Automatic extraction and validation of regulation article citations
+- **Interactive UI**: Streamlit frontend for document upload, comparison visualization, and report generation
+- **REST API**: FastAPI backend for programmatic access and integration
+- **Dockerized Deployment**: Production-ready Docker containers for easy deployment
+- **Comprehensive Reports**: PDF reports with compliance scores, discrepancies, citations, and actionable recommendations
 
 ## Architecture Overview
 
 ```
-User <--> Chainlit Chat UI
-       ↕
-ChatOpenAI (gpt-4o-mini)
-       ↕
-Retriever (Chroma + OpenAI embeddings)
-       ↕
-Pre-processed EU Regulation Texts (PDF → Chunks)
-       ↕
-Report Generator (Markdown → PDF)
+┌─────────────────┐
+│  User Interface │
+│  (Streamlit)    │
+└────────┬────────┘
+         │
+┌────────▼──────────────────────────────────┐
+│        Agent Orchestrator                 │
+│     (LLM-Mesh Pattern)                    │
+├───────────────────────────────────────────┤
+│  ┌─────────────┐  ┌──────────────┐      │
+│  │  Document   │  │  Regulation  │      │
+│  │   Agent     │  │    Agent     │      │
+│  └──────┬──────┘  └──────┬───────┘      │
+│         │                │              │
+│  ┌──────▼─────────┬──────▼───────┐      │
+│  │  Comparison    │  Citation    │      │
+│  │    Agent       │    Agent     │      │
+│  └──────┬─────────┴──────┬───────┘      │
+│         │                │              │
+│  ┌──────▼────────────────▼───────┐      │
+│  │      Report Generator          │      │
+│  └────────────────────────────────┘      │
+└───────────────────────────────────────────┘
+         │
+┌────────▼──────────────────────────────────┐
+│       Hybrid Retriever                    │
+│  ┌─────────────┐  ┌──────────────┐      │
+│  │   Vector    │  │  Knowledge   │      │
+│  │   Search    │  │    Graph     │      │
+│  │  (ChromaDB) │  │  (NetworkX)  │      │
+│  └─────────────┘  └──────────────┘      │
+└───────────────────────────────────────────┘
+         │
+┌────────▼──────────────────────────────────┐
+│  EU Regulation Database                   │
+│  (GDPR, AI Act, NIS2, DSA, DMA)          │
+└───────────────────────────────────────────┘
 ```
-
-- Data: stored in `chroma_eu_laws/`
-- Reports: generated dynamically on user queries
-- Vector embeddings: `text-embedding-3-small`
-
----
 
 ## Installation
 
-### 1. Clone & setup environment
+### Prerequisites
+
+- Python 3.10+
+- OpenAI API key
+- Docker (optional, for containerized deployment)
+
+### 1. Clone & Setup Environment
 
 ```bash
 git clone <your_repo_url>
@@ -52,89 +75,227 @@ venv\Scripts\activate  # On Windows
 pip install -r requirements.txt
 ```
 
-### 2. Configure environment
+### 2. Configure Environment
 
 Create a `.env` file (copy from `env.example`) and set your key:
 
-```
+```env
 OPENAI_API_KEY=sk-...
 CHROMA_DIR=chroma_eu_laws
 ```
 
-### 3. Run the app locally
+### 3. Run the Application
+
+#### Streamlit Frontend (Recommended)
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Access at: http://localhost:8501
+
+#### FastAPI Backend
+
+```bash
+python api/main.py
+# Or using uvicorn directly:
+uvicorn api.main:app --reload
+```
+
+API docs at: http://localhost:8000/docs
+
+#### Chainlit (Original Interface)
 
 ```bash
 chainlit run app.py -w
 ```
 
-## How It Works
+## Docker Deployment
 
-1. User enters a legal question or uploads policy content.
-2. The app retrieves relevant EU legal texts using ChromaDB.
-3. GPT-4o-mini analyzes and synthesizes the legal context.
-4. The chatbot provides a short answer.
-5. A full compliance report is generated (PDF).
+### Build and Run with Docker Compose
 
-## Evaluation Phase
+```bash
+docker-compose up --build
+```
 
-A dedicated `evaluation.ipynb` notebook is provided to:
+This starts both:
+- FastAPI backend on http://localhost:8000
+- Streamlit frontend on http://localhost:8501
 
-- Test the RAG pipeline across various queries
-- Compare GPT answers vs expected legal interpretations
-- Store results in a CSV for performance analysis
+### Build Docker Image Manually
+
+```bash
+docker build -t compliance-checker .
+docker run -p 8000:8000 -e OPENAI_API_KEY=sk-... compliance-checker
+```
+
+## Usage
+
+### Via Streamlit Interface
+
+1. Open http://localhost:8501
+2. Select regulations to check (GDPR, AI Act, NIS2, etc.)
+3. Upload your policy document (PDF, DOCX, or TXT)
+4. Click "Analyze Compliance"
+5. View results:
+   - Compliance score
+   - Identified discrepancies
+   - Regulation citations
+   - Download PDF report
+
+### Via REST API
+
+#### Upload Document
+
+```bash
+curl -X POST "http://localhost:8000/api/documents/upload" \
+  -F "file=@your_policy.pdf"
+```
+
+Response:
+```json
+{
+  "document_id": "uuid-here",
+  "filename": "your_policy.pdf",
+  "file_type": "PDF",
+  "status": "uploaded"
+}
+```
+
+#### Analyze Compliance
+
+```bash
+curl -X POST "http://localhost:8000/api/comparison/analyze" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "document_id": "uuid-here",
+    "regulation_types": ["GDPR", "AI Act"]
+  }'
+```
+
+#### Get Analysis Results
+
+```bash
+curl "http://localhost:8000/api/comparison/{analysis_id}"
+```
+
+#### Download PDF Report
+
+```bash
+curl "http://localhost:8000/api/reports/{analysis_id}/pdf" \
+  -o compliance_report.pdf
+```
 
 ## Project Structure
 
 ```
 genai_final_project_leo_benjo/
-├── app.py                        # Chainlit main app
-├── report_generator.py           # PDF generator module
-├── chunking.ipynb                # PDF → text chunks
-├── embedding_and_vector.ipynb    # Embedding creation + ChromaDB
-├── rag.ipynb                     # RAG logic development
-├── evaluation.ipynb              # Model performance analysis
-├── eu_laws_chunks.jsonl          # Text chunks
-├── chroma_eu_laws/               # Vector database
-├── chainlit.md                   # Optional Chainlit config
-├── requirements.txt              # Dependencies
-├── .env.example                  # Example environment variables
-├── .gitignore                    # Ignore venv, cache, artifacts
-├── ruff.toml                     # Linting/formatting config
-└── LICENSE
+├── app.py                          # Chainlit application (original)
+├── streamlit_app.py                # Streamlit frontend
+├── document_parser.py              # Document parsing module
+├── agent_orchestrator.py           # Multi-agent orchestrator
+│
+├── agents/                         # Multi-agent system
+│   ├── base.py                    # Base agent class
+│   ├── document_agent.py          # Document parsing agent
+│   ├── regulation_agent.py        # Regulation retrieval agent
+│   ├── comparison_agent.py        # Compliance comparison agent
+│   ├── citation_agent.py          # Citation extraction agent
+│   └── report_agent.py            # Report generation agent
+│
+├── comparison/                     # Comparison module
+│   ├── comparator.py              # Core comparison logic
+│   ├── discrepancy_detector.py    # Discrepancy detection
+│   └── severity_assessor.py       # Severity classification
+│
+├── graphrag/                       # GraphRAG implementation
+│   ├── entity_extractor.py        # Entity extraction
+│   ├── relationship_builder.py    # Relationship building
+│   ├── graph_store.py             # Graph storage
+│   └── hybrid_retriever.py        # Hybrid retrieval
+│
+├── api/                            # FastAPI backend
+│   ├── main.py                    # FastAPI app
+│   ├── schemas.py                 # Pydantic models
+│   └── routes/
+│       ├── documents.py           # Document endpoints
+│       ├── comparison.py          # Analysis endpoints
+│       └── reports.py             # Report endpoints
+│
+├── docker/
+│   ├── Dockerfile                 # Multi-stage Dockerfile
+│   └── docker-compose.yml         # Docker Compose config
+│
+├── report_generator.py            # PDF report generator
+├── requirements.txt               # Dependencies
+├── .env.example                   # Environment template
+└── README.md                      # This file
 ```
 
-## Example Query
+## Key Technologies
 
-**Question:**
+| Component | Technology |
+|-----------|-----------|
+| **Multi-Agent System** | LLM-Mesh pattern with specialized agents |
+| **GraphRAG** | Hybrid vector + graph retrieval |
+| **Vector DB** | ChromaDB |
+| **Knowledge Graph** | NetworkX (with JSON fallback) |
+| **Embeddings** | OpenAI text-embedding-3-small |
+| **LLM** | OpenAI GPT-4o-mini |
+| **Frontend** | Streamlit |
+| **Backend API** | FastAPI + Uvicorn |
+| **PDF Generation** | ReportLab |
+| **Document Parsing** | PyPDF2, python-docx |
 
-    Can I store photos of employees for internal authentication?
+## Multi-Agent Workflow
 
-**Chat Answer:**
+1. **Document Agent**: Parses uploaded policy document with semantic chunking
+2. **Regulation Agent**: Retrieves relevant EU regulations via RAG
+3. **Comparison Agent**: Compares policy content against regulations
+4. **Citation Agent**: Extracts and validates article citations
+5. **Report Agent**: Generates comprehensive compliance report
 
-    Yes, you can store photos of employees for internal authentication under GDPR, 
-    but you must adhere to specific legal requirements: ...
+## GraphRAG Implementation
 
-Full PDF report generated with compliance score, risk breakdown, and next steps.
+- **Entity Extraction**: Identifies articles, clauses, and requirements from regulations
+- **Relationship Building**: Maps connections between policy elements and regulation articles
+- **Hybrid Retrieval**: Combines vector similarity with graph traversal for better context
+- **Citation Tracking**: Maintains article-level relationships for accurate citation
 
-## Technologies
+## API Endpoints
 
-| Component | Library |
-|-----------|---------|
-| Vector DB | Chroma |
-| Embeddings | OpenAI text-embedding-3-small |
-| LLM | ChatOpenAI (gpt-4o-mini) |
-| Interface | Chainlit |
-| PDF Generator | ReportLab |
-| Data | Official EU Regulation Texts (GDPR, AI Act, etc.) |
+- `POST /api/documents/upload` - Upload policy document
+- `GET /api/documents/{id}` - Get document info
+- `POST /api/comparison/analyze` - Run compliance analysis
+- `GET /api/comparison/{id}` - Get analysis results
+- `GET /api/reports/{id}/pdf` - Download PDF report
+- `GET /api/regulations` - List available regulations
+- `GET /health` - Health check
+
+## Evaluation
+
+A dedicated `evaluation.ipynb` notebook is provided for:
+- Testing RAG pipeline accuracy
+- Validating citation extraction
+- Measuring discrepancy detection performance
+- Benchmarking system performance
 
 ## Future Improvements
 
-- Add multilingual support (FR/EN)
-- Integrate document upload for company policies
-- Add database of local EU Data Protection Authorities
-- Fine-tune model on compliance language
+- [ ] Multilingual support (FR/EN)
+- [ ] Advanced graph visualization
+- [ ] Batch document processing
+- [ ] Integration with document management systems
+- [ ] Fine-tuned models for compliance language
+- [ ] Real-time collaboration features
+- [ ] Compliance tracking over time
 
----
+## Authors
 
-**Authors:** Léo Bouchand, Benjamin Rasson  
+Léo Bouchand, Benjamin Rasson
+
 **Academic Project** — Applied AI & Data Science 2025
+
+## License
+
+See LICENSE file for details.

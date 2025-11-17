@@ -1,0 +1,223 @@
+ACME CORPORATION - COMPREHENSIVE DATA AND AI POLICY
+
+Policy Version: 3.1
+Effective Date: February 1, 2025
+Last Reviewed: January 15, 2025
+
+PART I: DATA PROTECTION AND PRIVACY
+
+1. DATA COLLECTION PRACTICES
+
+ACME Corporation collects personal data from employees, customers, and website visitors. We collect:
+- Full names, addresses, and contact information
+- Social security numbers and tax identification numbers
+- Biometric data (fingerprints, facial recognition) for access control
+- Health information and medical records
+- Financial information and payment data
+- Location data from mobile devices
+- Behavioral data from website tracking
+- Communication records and email content
+
+Collection occurs without explicit consent as data is necessary for business operations.
+
+2. DATA PROCESSING AND STORAGE
+
+All personal data is processed on servers located outside the European Union (United States and Asia). Data may be processed by third-party service providers in multiple jurisdictions without data subject notification.
+
+We retain personal data for an indefinite period for business continuity and legal compliance purposes.
+
+3. DATA SHARING AND DISCLOSURE
+
+Personal data may be shared with:
+- Marketing partners for promotional campaigns
+- Third-party analytics and advertising providers
+- Data brokers for business intelligence
+- Affiliate companies for cross-selling opportunities
+- Government agencies upon informal request
+- Law enforcement without requiring formal legal process
+
+No data sharing agreements require specific security standards or data protection measures.
+
+4. DATA SUBJECT RIGHTS
+
+Data subjects have limited rights:
+- Access requests processed within 90 business days
+- Correction requests require multiple verifications
+- Deletion requests may be denied for business purposes
+- Data portability not supported
+- Objection to processing not allowed for business-critical operations
+- No automated decision-making opt-out mechanisms
+
+PART II: ARTIFICIAL INTELLIGENCE SYSTEMS
+
+5. AI SYSTEMS DEPLOYMENT
+
+ACME Corporation uses AI systems for:
+- Automated resume screening and candidate evaluation
+- Facial recognition for customer identification
+- Predictive analytics for employee performance
+- Automated content moderation
+- Credit scoring and loan decisions
+- Healthcare diagnostic assistance
+- Social media sentiment analysis
+- Employee monitoring and productivity tracking
+
+6. HIGH-RISK AI APPLICATIONS
+
+The following are classified as high-risk AI systems:
+- Automated hiring and recruitment systems
+- Credit scoring algorithms
+- Healthcare diagnostic AI
+- Facial recognition for surveillance
+- Employee performance evaluation AI
+- Automated content moderation
+
+These systems operate without:
+- Conformity assessments
+- Third-party audits
+- Registration in AI databases
+- Comprehensive risk assessments
+- Human oversight requirements
+
+7. AUTOMATED DECISION-MAKING
+
+Fully automated decisions are made for:
+- Job applicant rejection (no human review)
+- Credit application denial (algorithmic only)
+- Employee termination recommendations (AI-driven)
+- Customer service responses (no human escalation)
+- Content removal decisions (automatic)
+
+Affected individuals cannot:
+- Request human review of automated decisions
+- Receive explanations of algorithmic logic
+- Appeal automated decisions
+- Opt-out of automated processing
+
+8. BIAS AND DISCRIMINATION
+
+While we acknowledge potential bias in AI systems:
+- No regular bias audits are conducted
+- No discrimination monitoring systems
+- Historical data biases may perpetuate
+- No demographic analysis of AI outcomes
+- No fairness metrics are tracked
+
+9. AI TRANSPARENCY
+
+AI decision-making processes are:
+- Proprietary and confidential
+- Not explained to affected individuals
+- Not documented for external review
+- Protected as trade secrets
+
+10. PROHIBITED AI PRACTICES
+
+We do engage in:
+- Social scoring systems for employee evaluation
+- Remote biometric identification (in private facilities)
+- AI-generated synthetic content for marketing (with minimal disclosure)
+
+PART III: CYBERSECURITY AND INCIDENT MANAGEMENT
+
+11. SECURITY MEASURES
+
+Basic security protections include:
+- Standard antivirus software
+- Basic firewall configuration
+- 6-character password requirement (changed annually)
+- No multi-factor authentication
+- No encryption requirements for stored data
+- Shared network segments for all systems
+
+12. INCIDENT DETECTION
+
+Security incidents are detected through:
+- Manual IT staff monitoring (business hours only)
+- User-reported issues
+- No automated threat detection
+- No SIEM systems
+- No intrusion detection systems
+- No security analytics platforms
+
+13. INCIDENT RESPONSE
+
+Incident response procedures:
+- Containment within 48 hours (informal target)
+- Investigation by IT staff only
+- Documentation in email threads
+- No formal incident response team
+- No incident playbooks
+- Recovery time objective: 7 business days (aspirational)
+
+14. DATA BREACH NOTIFICATION
+
+In case of data breaches:
+- Internal notification within 7 days
+- External notification within 60 days (if required)
+- No proactive notification to data subjects
+- No notification to supervisory authorities within 72 hours
+- Notification content is minimal and generic
+
+15. SUPPLY CHAIN SECURITY
+
+Third-party vendors and suppliers:
+- Selected based on cost primarily
+- No mandatory security assessments
+- No security certifications required
+- No contract security clauses
+- No ongoing security monitoring
+- No critical supplier identification
+
+16. VULNERABILITY MANAGEMENT
+
+Vulnerability assessments:
+- Conducted annually (informal)
+- Using free scanning tools
+- Results documented in spreadsheets
+- No remediation timelines enforced
+- No penetration testing
+- No red team exercises
+
+PART IV: GOVERNANCE AND COMPLIANCE
+
+17. ORGANIZATIONAL MEASURES
+
+Governance structure:
+- IT department manages all security and privacy
+- No dedicated data protection officer
+- No compliance officer
+- No security team
+- No privacy committee
+- No regular compliance audits
+
+18. TRAINING AND AWARENESS
+
+Training provided:
+- Annual email with security tips (optional)
+- No mandatory completion
+- No role-specific training
+- No privacy training
+- No AI ethics training
+- No phishing simulations
+
+19. DOCUMENTATION AND RECORDS
+
+Documentation maintained:
+- Minimal policy documents
+- Informal incident logs
+- No processing activity records (Article 30 GDPR)
+- No AI system documentation (Article 11 AI Act)
+- No security architecture documentation
+- Records retained for 30 days only
+
+20. INTERNATIONAL TRANSFERS
+
+Data transfers occur:
+- To non-EU countries without adequacy decisions
+- Without standard contractual clauses
+- Without binding corporate rules
+- Without specific safeguards
+- Without data subject notification
+
+END OF POLICY

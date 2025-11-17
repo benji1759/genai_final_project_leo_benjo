@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # FastAPI backend service
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: compliance_api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHROMA_DIR=chroma_eu_laws
+    volumes:
+      - ./chroma_eu_laws:/app/chroma_eu_laws
+      - ./documents:/app/documents
+      - ./compliance_report_*.pdf:/app/
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Streamlit frontend service
+  streamlit:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: compliance_streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHROMA_DIR=chroma_eu_laws
+    volumes:
+      - ./chroma_eu_laws:/app/chroma_eu_laws
+      - ./documents:/app/documents
+      - ./compliance_report_*.pdf:/app/
+    command: streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - api
+    restart: unless-stopped
+
+# Optional: Add volumes for persistent data
+volumes:
+  chroma_data:
+    driver: local
+  documents_data:
+    driver: local

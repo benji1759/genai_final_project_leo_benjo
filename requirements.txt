@@ -1,9 +1,30 @@
+# Core LLM + RAG stack
 openai
 langchain
 chromadb
-reportlab
 langchain-openai
 langchain-chroma
-# langchain-schema
+
+# Document processing
+PyPDF2
+python-docx
+
+# PDF & formatting
+reportlab
 markdown
+
+# Frontend
 chainlit
+streamlit
+
+# API
+fastapi
+uvicorn
+python-multipart
+
+# Graph operations
+networkx
+
+# Utilities
+python-dotenv
+pydantic
