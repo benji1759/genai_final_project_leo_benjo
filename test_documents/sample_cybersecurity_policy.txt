@@ -1,0 +1,120 @@
+ACME CORPORATION - CYBERSECURITY AND INFORMATION SECURITY POLICY
+
+Document ID: SEC-POL-2025-001
+Last Updated: February 2025
+
+1. PURPOSE AND SCOPE
+
+This policy establishes cybersecurity measures for protecting ACME Corporation's information systems, networks, and data assets. This policy applies to all employees, contractors, and third-party service providers.
+
+2. RISK MANAGEMENT
+
+ACME Corporation conducts informal risk assessments annually. Risk management is the responsibility of the IT department without dedicated security personnel.
+
+3. INFORMATION SECURITY MEASURES
+
+Basic security measures in place:
+- Standard antivirus software on employee computers
+- Firewall protection for corporate networks
+- Password policy requiring 6-character passwords, changed annually
+- No multi-factor authentication requirement
+
+We do not maintain a comprehensive security architecture or defense-in-depth strategy.
+
+4. INCIDENT DETECTION AND RESPONSE
+
+Security incidents are detected through:
+- Manual monitoring by IT staff during business hours (9 AM - 5 PM, weekdays only)
+- User reports of suspicious activity
+- No automated threat detection systems
+- No security information and event management (SIEM) system
+
+Incident response procedures:
+- Containment actions taken within 48 hours of detection
+- Incident documentation maintained in email communications only
+- No formal incident response team or playbooks
+
+5. BUSINESS CONTINUITY AND DISASTER RECOVERY
+
+We maintain basic data backups:
+- Weekly backups to on-premise storage
+- No off-site backup copies
+- No documented disaster recovery procedures
+- Recovery time objective: 7 business days (informal target)
+
+6. SUPPLY CHAIN SECURITY
+
+Third-party service providers and suppliers are selected based on:
+- Cost considerations
+- Basic functionality requirements
+- No mandatory security assessments or certifications
+- No contract clauses requiring specific security measures
+
+Critical suppliers are not identified or prioritized for enhanced security scrutiny.
+
+7. NETWORK SECURITY
+
+Network segmentation is minimal. All systems share the same network segment. Access controls are based on basic user authentication without role-based access control (RBAC).
+
+Remote access is permitted via VPN without additional security verification.
+
+8. VULNERABILITY MANAGEMENT
+
+Vulnerability assessments are conducted:
+- Annually by internal IT staff
+- Using free scanning tools only
+- Results are documented informally
+- Remediation timelines are not enforced
+
+No penetration testing or red team exercises are conducted.
+
+9. INCIDENT NOTIFICATION
+
+Security incidents are reported:
+- Internally to management within 7 days
+- No external notification to authorities unless legally required
+- Customer notification only for major incidents affecting payment data
+- Notification timelines: "as soon as reasonably practicable" (no specific timeframe)
+
+10. DATA PROTECTION
+
+Data protection measures:
+- Encryption for data at rest: Optional (not mandatory)
+- Encryption for data in transit: HTTPS for web traffic only
+- No encryption key management system
+- Access logs maintained for 30 days only
+
+11. EMPLOYEE TRAINING AND AWARENESS
+
+Security awareness training is provided:
+- Annually via email with security tips
+- No mandatory completion tracking
+- No role-specific security training
+- No phishing simulation exercises
+
+12. AUDIT AND COMPLIANCE
+
+Security audits are conducted:
+- Internally by IT department
+- Annually with informal reports
+- No external security audits or certifications
+- No compliance monitoring or reporting mechanisms
+
+13. CRITICAL INFRASTRUCTURE
+
+We identify the following as critical systems:
+- Email servers
+- Financial systems
+- Customer database
+
+These systems have no enhanced security measures beyond standard protections.
+
+14. THREAT INTELLIGENCE
+
+We do not subscribe to threat intelligence services or participate in information sharing initiatives.
+
+15. PENETRATION TESTING
+
+Penetration testing is not conducted. We rely on vulnerability scanning results.
+
+END OF POLICY

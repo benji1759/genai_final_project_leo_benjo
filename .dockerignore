@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+.env.local
+
+# Documentation
+*.md
+!README.md
+
+# Notebooks (if not needed in production)
+*.ipynb
+.ipynb_checkpoints/
+
+# Reports (generated files)
+compliance_report_*.pdf
+
+# Test files
+tests/
+test_*.py
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# CI/CD
+.github/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Virtual env
+venv/
+.venv/
+
+# Data & artifacts
+chroma_eu_laws/
+*.pdf
+*.csv
+*.parquet
+*.db
+*.sqlite
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets
+.env
+
+# Build
+dist/
+build/
+

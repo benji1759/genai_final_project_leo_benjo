@@ -1,4 +1,4 @@
-# 🧾 EU Policy Compliance Checker
+# EU Policy Compliance Checker
 
 This app analyzes any internal policy or project idea against key European regulations.
 
@@ -7,5 +7,5 @@ This app analyzes any internal policy or project idea against key European regul
 - Perform automated legal reasoning with GPT-4o
 - Generate a professional compliance report (PDF)
 
-👉 Type a question like:
+Type a question like:
 > Can we store biometric employee data for authentication in Europe?

@@ -1,0 +1,59 @@
+INTERNAL PRIVACY POLICY - ACME CORPORATION
+
+Effective Date: January 1, 2025
+
+1. INTRODUCTION
+
+This policy outlines how ACME Corporation collects, uses, and protects employee and customer data.
+
+2. DATA COLLECTION
+
+ACME Corporation collects the following personal data:
+- Full names and email addresses of all employees
+- Personal identification numbers (social security numbers) for payroll purposes
+- Biometric data including fingerprints and facial recognition images for access control
+- Location tracking data via company-issued mobile devices
+- Health information and medical records of employees
+
+We collect this data without explicit consent as it is necessary for business operations.
+
+3. DATA STORAGE AND PROCESSING
+
+All personal data is stored on our internal servers located in the United States. Data may be transferred to third-party service providers without notification to data subjects.
+
+We retain personal data indefinitely for business and legal purposes.
+
+4. DATA SHARING
+
+ACME Corporation may share personal data with:
+- Marketing partners for promotional purposes
+- Third-party analytics providers
+- Law enforcement agencies upon request (without requiring a court order)
+- Affiliate companies for cross-marketing opportunities
+
+5. DATA SUBJECT RIGHTS
+
+Data subjects may request access to their data, but requests may take up to 90 days to process. There is no automated process for data deletion requests.
+
+6. SECURITY MEASURES
+
+We use basic password protection for data storage. Security incidents will be reported internally only.
+
+7. COOKIES AND TRACKING
+
+We use cookies to track user behavior without consent mechanisms. Users cannot opt-out of tracking.
+
+8. INTERNATIONAL TRANSFERS
+
+Personal data of EU residents may be transferred to non-EU countries without adequacy decisions or appropriate safeguards.
+
+9. DATA BREACH NOTIFICATION
+
+In case of a data breach affecting personal data, we will notify affected individuals within 60 days of discovery, if feasible.
+
+10. CONTACT INFORMATION
+
+For privacy concerns, contact: privacy@acme.com
+Response time: 30 business days.
+
+END OF POLICY
